@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.getElementsByClassName('box')[0]
+        var canMove = false
+        var position = [0, 0]
+        box.addEventListener('mousedown', function (e) {
+            canMove = true
+            position = [e.clientX, e.clientY]
+        });
+        document.addEventListener('mousemove', function (e) {
+            if (!canMove) return
+            let x = e.clientX - position[0] + parseInt(box.style.left || 0)
+            let y = e.clientY - position[1] + parseInt(box.style.top || 0)
+            // console.log(x, y)
+            console.log(e)
+            box.style.left = x + 'px'
+            box.style.top = y + 'px'
+            position = [e.clientX, e.clientY]
+
+            // console.log(e.clientX, e.clienY)
+        });
+        document.addEventListener('mouseup', function (e) {
+            console.log('falsefa')
+            canMove = false
+        })
+    </script>
+</body>
+
+</html>

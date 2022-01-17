@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            height: 300px;
+            border: 1px solid red;
+            text-align: center;
+        }
+
+        .before,
+        .after {
+            display: inline-block;
+            width: 0px;
+            height: 100%;
+            vertical-align: middle;
+            /* vertical-align: middle;得设置 */
+        }
+
+        .child {
+            display: inline-block;
+            vertical-align: middle;
+            /* width: 300px; */
+            /* widht不设置的话内容宽度不能超过父元素宽度，不然会挤出父元素外 */
+            /* widht设置的话不能超过父元素，不然会挤出父元素外 */
+        }
+    </style>
+
+
+    <style>
+        .child2 {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* 是给parent加before，不是child2::after */
+        .parent2::before,
+        .parent2::after {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 0px;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <span class="before"></span>
+        <!-- <div class="child">我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；</div> -->
+        <div class="child">我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；</div>
+        <span class="after"></span>
+    </div>
+
+    <hr>
+
+    <div class="parent parent2">
+        <div class="child2">我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；</div>
+    </div>
+</body>
+
+</html>

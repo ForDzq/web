@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>你好，<span>我是span</span></li>
+        <li>你好，<span>我是span</span></li>
+        <li>你好，<span>我是span</span></li>
+        <li>你好，<span>我是span</span></li>
+        <li>你好，<span>我是span</span></li>
+    </ul>
+    <script>
+
+
+        function add(element, selector, type, fn) {
+            element.addEventListener(type, function (e) {
+                let el = e.target
+                while (!el.matches(selector)) {
+                    el = el.parentNode
+                    if (el == element) {
+                        el == ''
+                        return
+                    }
+                }
+                el && fn(e)
+            })
+        }
+
+
+        let ul = document.getElementsByTagName('ul')[0];
+        add(ul, 'li', 'click', (e) => { console.log(e.target.innerText) })
+    </script>
+</body>
+
+</html>

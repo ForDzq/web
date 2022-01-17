@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            height: 300px;
+            border: 1px solid red;
+            position: relative;
+        }
+
+        .child {
+            /* 只写left:0;right:0;可实现水平居中；top:0;bottom:0;可实现垂直居中 */
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border: 1px solid #ccc;
+
+            /* 不用position:absolute以下代码可水平方向居中 */
+            /* width: 200px;
+            height: 200px;
+            margin: auto; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；</div>
+    </div>
+</body>
+
+</html>

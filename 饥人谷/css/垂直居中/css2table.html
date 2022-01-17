@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            display: table;
+            height: 300px;
+            border: 1px solid red;
+        }
+
+        .tr {
+            display: table-cell;
+            vertical-align: middle;
+            /* vertical-align必须，display:table-cell待查什么意思 */
+
+
+            /* border: 1px solid black; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="tr">
+            <div>我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；</div>
+            <!-- 我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容； -->
+            <!-- <span>我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；</span> -->
+        </div>
+    </div>
+</body>
+
+</html>
