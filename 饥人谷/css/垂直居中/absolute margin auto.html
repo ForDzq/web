@@ -16,6 +16,7 @@
             /* 只写left:0;right:0;可实现水平居中；top:0;bottom:0;可实现垂直居中 */
             position: absolute;
             width: 200px;
+            display: block;
             height: 200px;
             margin: auto;
             left: 0;
@@ -24,7 +25,7 @@
             bottom: 0;
             border: 1px solid #ccc;
 
-            /* 不用position:absolute以下代码可水平方向居中 */
+            /* 不用position:absolute以下代码可水平方向居中,得是块元素，定宽 */
             /* width: 200px;
             height: 200px;
             margin: auto; */
@@ -35,6 +36,7 @@
 <body>
     <div class="parent">
         <div class="child">我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；</div>
+        <!-- <span class="child">我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；我是垂直居中的内容；</span> -->
     </div>
 </body>
 

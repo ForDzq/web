@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="body">
+    <div id="1">
+        1
+        <div id="2">
+            2
+            <div id="3">
+                3
+                <div id="4">
+                    4
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var body = document.getElementById('body')
+        var id1 = document.getElementById(1)
+        var id2 = document.getElementById(2)
+        var id3 = document.getElementById(3)
+        var id4 = document.getElementById(4)
+
+        body.addEventListener('click', () => { console.log('body-冒泡') }, false)
+        body.addEventListener('click', () => { console.log('body-捕获') }, true)
+
+        // body.addEventListener('click', () => { console.log('body-捕获') }, true)
+        // body.addEventListener('click', () => { console.log('body-冒泡') }, false)
+
+
+        id1.addEventListener('click', () => { console.log('1-冒泡') }, false)
+        id1.addEventListener('click', () => { console.log('1-捕获') }, true)
+
+        id2.addEventListener('click', (e) => { console.log('2-冒泡'); }, false)
+        id2.addEventListener('click', (e) => { console.log('2-捕获'); }, true)
+        // id2.addEventListener('click', (e) => { console.log('2-冒泡'); console.log('e-冒泡', e, e.currentTarget) }, false)
+        // id2.addEventListener('click', (e) => { console.log('2-捕获'); console.log('e-捕获', e, e.currentTarget) }, true)
+
+        // stopPropagation可以阻止冒泡和捕获事件，stopImmediatePropagation还能阻止自身的其他注册事件
+        // id2.addEventListener('click', (e) => { console.log('2-捕获2-1'); e.stopImmediatePropagation() }, true)
+        // id2.addEventListener('click', (e) => { console.log('2-捕获2-1'); e.stopPropagation() }, true)
+        // id2.addEventListener('click', (e) => { console.log('2-捕获2-2') }, true)
+        // id2.addEventListener('click', (e) => { console.log('2-捕获'); e.stopPropagation(); }, true)
+
+        id3.addEventListener('click', () => { console.log('3-冒泡') }, false)
+        id3.addEventListener('click', () => { console.log('3-捕获') }, true)
+
+        id4.addEventListener('click', () => { console.log('4-冒泡') }, false)
+        id4.addEventListener('click', (e) => { console.log('4-捕获'); }, true)
+
+
+    </script>
+</body>
+
+</html>

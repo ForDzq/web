@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <title>测试localStorage</title>
+    <div><span>手机号：</span> <input id='phone' /><button id='phoneBtn'>存手机号</button></div>
+    <div><span>Token：</span> <input id='token' /><button id='tokenBtn'>存Token</button></div>
+    <script>
+        function setItem(key, value, type) {
+            let sotrage =
+                type && type == "localStorage" ? localStorage : sessionStorage;
+            if (typeof value == "object") {
+                value = JSON.stringify(value);
+            }
+            sotrage.setItem(key, value);
+            sotrage.setItem(`${key}2`, JSON.stringify({ value: value }))
+            // if (['TOKEN', 'phoneNumber'].includes(key)) {
+            //     Cookies.set(key, value, { expires: 30 }) // localStorage莫名被清掉，存在cookie试下
+            // }
+        }
+
+        function getItem(key, type) {
+            let sotrage =
+                type && type == "localStorage" ? localStorage : sessionStorage;
+            let value = sotrage.getItem(key);
+            try {
+                value = JSON.parse(value);
+                // if (!value && ['TOKEN', 'phoneNumber'].includes(key)) {
+                //     value = Cookies.get(key) // localStorage莫名被清掉，存在cookie试下
+                // }
+            } catch (e) {
+                throw new Error("错误");
+            } finally {
+                return value; //throw之后的语句都不会执行了，除非用finally---所以如果字符串没有用setItem存，然后用getItem取会取不到，要加finally
+            }
+            return value;
+        }
+
+        let phone = document.getElementById('phone')
+        let phoneBtn = document.getElementById('phoneBtn')
+        let token = document.getElementById('token')
+        let tokenBtn = document.getElementById('tokenBtn')
+
+        phone.value = getItem('phone', 'localStorage')
+        token.value = getItem('token', 'localStorage')
+
+        phoneBtn.addEventListener('click', function () { setItem('phone', phone.value, 'localStorage') })
+        tokenBtn.addEventListener('click', function () { setItem('token', token.value, 'localStorage') })
+    </script>
+</body>
+
+</html>

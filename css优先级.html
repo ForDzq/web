@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="ha" id="wrapper">
+        哈哈哈
+    </div>
+    <div class="outer">
+        <p>This is in the outer div.</p>
+        <div class="inner">
+            <p>This text is in the inner div.</p>
+        </div>
+
+        <ul>
+            <li>afga</li>
+            <li class="li1">One</li>
+            <span>我是span</span>
+            <li>Two!</li>
+            <li>Three</li>
+        </ul>
+        <ul>
+            <li>afaf</li>
+            <li class="li2">One</li>
+            <span>我是</span>
+            <li>Two!</li>
+            <li>Three</li>
+            <li><span>agjalg</span></li>
+        </ul>
+    </div>
+    <style>
+        /* // 这组选择器包含了伪类，用来样式化一个元素的特定状态。
+            // 它还可以包含了伪元素，选择一个元素的某个部分而不是元素自己。 */
+
+        /* 
+        div {
+            color: red !important;
+        } */
+
+        #wrapper.ha {
+            color: blue !important;
+        }
+
+        div {
+            /* color: red !important; */
+        }
+
+
+        /* div.outer p {
+            color: orange;
+        } */
+
+        div:not(.outer) p {
+            color: blueviolet;
+        }
+
+        div.outer p {
+            color: orange;
+        }
+
+        .li1+li {
+            color: red;
+        }
+
+        .li2~li {
+            color: blue;
+        }
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 400px;
+            height: 400px;
+            border: 1px solid red;
+            display: grid;
+            grid-template-columns: repeat(3, 120px);
+            grid-template-rows: repeat(2, 50px);
+            grid-gap: 10px 20px;
+            grid-template-areas: 'a a a''b b .';
+            grid-auto-flow: column;
+            justify-items: stretch;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div><span style="background-color:red;">a boy</span></div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+    </div>
+</body>
+
+</html>

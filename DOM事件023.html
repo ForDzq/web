@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div id="contain" onclick="clickFn()">
+        sofa进了房间安居房辣椒粉
+    </div> -->
+    <a id="href" href="../index.html"></a>
+    <input type="text" id="hello">
+    <input id="contain" class="afa" />
+
+    <script>
+        var contain = document.getElementById('contain')
+        function clickFn() {
+            console.log('111')
+        }
+        function clickFn2() {
+            console.log('222')
+        }
+        function clickFn3() {
+            console.log('333')
+        }
+        // dom 0级事件,无法为同一事件类型绑定多个事件
+        // contain.onclick = clickFn
+        // contain.onclick = clickFn3
+        // contain.onfocus = clickFn2
+
+        // dom2级事件可同一事件添加多个函数，且有removeEventListener
+        contain.addEventListener('click', () => { console.log('click的第1个') })
+        contain.addEventListener('click', () => { console.log('click的第1个') })
+        contain.addEventListener('focus', () => { console.log('focus') })
+
+        // dom3级别添加了更多事件类型且可以自定义一些事件
+
+       //  事件是javascript和HTML交互基础
+       //  DOM级别 一共可以分为四个级别：DOM0级、DOM1级、DOM2级和DOM3级。
+       //  而DOM事件       分为3个级别：DOM0级事件处理，DOM2级事件处理和DOM3级事件处理。
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function throttle1(f, wait, context, immediate) {
+            // let timer = null
+            let timer = immediate ? null : setTimeout(() => { timer = null }, wait);
+            return (...arg) => {
+                if (timer) return
+                f.call(context, ...arg)
+                timer = setTimeout(() => {
+                    timer = null
+                }, wait);
+            }
+        }
+
+        function throttle2(f, wait, context, immediate) {
+            let timer = null
+            //let timer = immediate ? null : setTimeout(() => { timer = null}, wait);
+            return (...arg) => {
+                if (immediate) {
+                    immediate = false
+                    f.call(context, ...arg)
+                }
+                if (!timer) {
+                    timer = setTimeout(() => {
+                        timer = null
+                        f.call(context, ...arg)
+                    }, wait);
+                }
+            }
+        }
+
+        function throttle(f, wait, immediate) {
+            let timer = null
+            if (immediate) {
+                return (...arg) => {
+                    if (timer) return
+                    f.call(undefined, ...arg)
+                    timer = setTimeout(() => {
+                        timer = null
+                    }, wait);
+                }
+            } else {
+                return (...arg) => {
+                    if (timer) return
+                    timer = setTimeout(() => {
+                        f.call(undefined, ...arg)
+                        timer = null
+                    }, wait);
+                }
+            }
+        }
+
+        function debounce(f, wait) {
+            timer = null
+            return (...arg) => {
+                timer = null
+                timer = setTimeout(() => {
+                    f.call(undefined, ...arg)
+                }, wait);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
